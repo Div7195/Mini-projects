@@ -1,0 +1,205 @@
+body{
+    background-color: black;
+}
+
+.bannerContainer{
+    
+    background : linear-gradient(90deg, rgb(3,37,65) 0%, rgb(3,37,65, 0.4) 100%);
+    width:85%;
+    margin:0px auto;
+    border: 1px solid blueviolet;
+    height:55vh;
+    display:flex;
+    flex-direction:row;
+}
+.leftPart{
+    display:flex;
+    flex-direction:column;
+    width: 50%;
+
+}
+.rightPart{
+    background-image: linear-gradient(90deg, rgba(3,37,65,0.8) 40%, rgba(3,37,65,0) 100%), url('https://static.sacnilk.com/articles/sports/cricket/1852.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:50%;
+    height:55vh;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    
+}
+.heading{
+    color:#FFFFFF;
+    line-height:1;
+    font-size: 6em;
+    font-weight: 700;
+    margin-left:40px;
+    font-family: 'DM Serif Display', serif;
+    margin-top:65px;
+}
+.quoteLineA{
+    background: linear-gradient(90deg, rgba(202,245,126,1) 0%, rgba(116,250,162,1) 34%, rgba(5,255,198,1) 55%, rgba(0,237,255,1) 74%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    font-weight: 600;
+    color:white;
+    margin-left:40px;
+    margin-top:80px;
+    font-family: 'Merriweather', serif;
+}
+.quoteLineB{
+    background: linear-gradient(90deg, rgba(202,245,126,1) 0%, rgba(116,250,162,1) 34%, rgba(5,255,198,1) 55%, rgba(0,237,255,1) 74%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    font-weight: 600;
+    color:white;
+    margin-left:40px;
+    margin-top:2px;
+    font-family: 'Merriweather', serif;
+}
+
+.subHeading1{
+    background: linear-gradient(90deg, rgba(254,137,12,1) 11%, rgba(235,195,13,1) 72%, rgba(235,218,13,1) 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2em;
+    font-weight: 600;
+    color:white;
+    margin-left:40px;
+    margin-top:12px;
+    font-family: 'Merriweather', serif;
+}
+.subHeading2{
+    background: linear-gradient(90deg, rgba(254,137,12,1) 11%, rgba(235,195,13,1) 72%, rgba(235,218,13,1) 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2em;
+    font-weight: 600;
+    color:white;
+    margin-left:40px;
+    margin-top:8px;
+    font-family: 'Merriweather', serif;
+}
+
+.contentContainer{
+    
+    background : linear-gradient(90deg, rgb(3,37,65) 0%, rgb(3,37,65, 0.4) 100%);
+    width:85%;
+    margin:10px auto;
+    border: 1px solid blueviolet;
+    height:50vh;
+    display:flex;
+    flex-direction:row;
+}
+
+.contentLeft{
+    background-image: linear-gradient(90deg, rgba(3,37,65,0.8) 40%, rgba(3,37,65,0) 100%), url('https://thesimplehelp.com/wp-content/uploads/2021/07/Virat-Kohli-Quotes-in-Hindi-jpg.webp');
+
+    width:30%;
+    height:50vh;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.contentRight{
+    
+    display:flex;
+    flex-direction:column;
+    width: 70%;
+}
+.contentContainerB{
+    
+    background : linear-gradient(90deg, rgb(3,37,65) 0%, rgb(3,37,65, 0.4) 100%);
+    width:85%;
+    margin:10px auto;
+    border: 1px solid blueviolet;
+    height:50vh;
+    display:flex;
+    flex-direction:row;
+}
+
+.contentLeftB{
+    display:flex;
+    flex-direction:column;
+    width: 70%;
+    
+    
+}
+.contentRightB{
+    
+    background-image: linear-gradient(90deg, rgba(3,37,65,0.8) 40%, rgba(3,37,65,0) 100%), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5xYhb5iRKJUn281zmnRciU8Op5VM0IrGCZA&usqp=CAU');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30%;
+    height:50vh;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    
+}
+
+
+.contentContainerC{
+    
+    background : linear-gradient(90deg, rgb(3,37,65) 0%, rgb(3,37,65, 0.4) 100%);
+    width:85%;
+    margin:10px auto;
+    border: 1px solid blueviolet;
+    height:50vh;
+    display:flex;
+    flex-direction:row;
+}
+
+.contentLeftC{
+    background-image: linear-gradient(90deg, rgba(3,37,65,0.8) 40%, rgba(3,37,65,0) 100%), url('https://static.toiimg.com/photo/95053037.cms');
+    background-size: cover;
+    
+    width:30%;
+    height:50vh;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.contentRightC{
+    display:flex;
+    flex-direction:column;
+    width: 70%;
+}
+
+    
+
+
+.contentContainerD{
+    
+    background : linear-gradient(90deg, rgb(3,37,65) 0%, rgb(3,37,65, 0.4) 100%);
+    width:85%;
+    margin:10px auto;
+    border: 1px solid blueviolet;
+    height:50vh;
+    display:flex;
+    flex-direction:row;
+}
+
+.contentLeftD{
+    display:flex;
+    flex-direction:column;
+    width: 70%;
+    
+    
+}
+.contentRightD{
+    
+    background-image: linear-gradient(90deg, rgba(3,37,65,0.8) 40%, rgba(3,37,65,0) 100%), url('https://www.hindustantimes.com/ht-img/img/2023/06/20/1600x900/AP06-07-2023-000097A-0_1686166790234_1687253916898.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30%;
+    height:50vh;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    
+}
+.mainContainer{
+}

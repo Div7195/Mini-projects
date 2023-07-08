@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/344f42c32e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+ <div class="mainContainer">
+    <div class="header">
+        <div class="title">ToDo Web App</div>
+    </div>
+    <div class="content">
+        <div class="blogBox" id="blogFormView">
+            <form>
+                <div class="titleHeadingA">
+                Title:
+                
+                </div>
+                <input class="inputTitle" type="text" id="titleView" name="titleView"  placeholder="Enter title"><br>
+                <div class="titleHeadingB">
+                Description:
+                </div>
+  <textarea class="inputDesc" id="descView" name="descView" rows="8" cols="50" placeholder="Enter description"></textarea>
+              </form>
+              <div class="submitButton" id="saveButtonView" >
+                Save
+              </div>
+        </div>
+        <div class="blogBox" id="blogFormEditView">
+            <form>
+                <div class="titleHeadingA">
+                    Title:
+                </div>
+                <input class="inputTitle" type="text" id="titleEditView" name="titleEditView"  placeholder="Enter title"><br>
+                <div class="titleHeadingB">
+                    Description:
+                </div>
+  <textarea class="inputDesc" id="descEditView" name="descEditView" rows="8" cols="50" placeholder="Enter description"></textarea>
+              </form>
+              <div class="submitButton" id="editTaskButtonView" >
+                Save
+              </div>
+              <div class="submitButton" id="newTaskButtonView">
+                Make a new task
+              </div>
+        </div>
+    <div>
+        <div class="headingList">
+            Pending Tasks
+        </div>
+        <div class="pendingTaskList" id="pendingListView">
+            
+            
+        </div>
+        
+    </div>
+    <div>
+        <div class="headingList">
+            Completed Tasks
+        </div>
+        <div class="pendingTaskList" id="completeListView">
+            
+        
+        </div>
+        
+    </div> 
+    </div>
+ </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+
+  <div class="mainContainer">
+
+    <div class="subContainer2">
+        <div id="heading">CALCULATOR</div>
+      <input type="text" id="inputBox" readonly>
+      <input type="text" id="resultBox" readonly>
+    </div>
+    <div class="buttonContainer">
+      <button class="operatorButton" onclick="appendToInputBox('(')">(</button>
+      <button class="operatorButton" onclick="appendToInputBox(')')"> ) </button>
+      <button id="clearButton" onclick="clearBothBox()">Clear</button>
+      <button id="deleteButton" onclick="deleteInputBox()">Delete</button>
+      <button class="integerButton" onclick="appendToInputBox('1')">1</button>
+      <button class="integerButton" onclick="appendToInputBox('2')">2</button>
+      <button class="integerButton" onclick="appendToInputBox('3')">3</button>
+      
+      <button class="operatorButton" onclick="appendToInputBox('-')">-</button>
+      <button class="integerButton" onclick="appendToInputBox('4')">4</button>
+      <button class="integerButton" onclick="appendToInputBox('5')">5</button>
+      <button class="integerButton" onclick="appendToInputBox('6')">6</button>
+      <button class="operatorButton" onclick="appendToInputBox('+')">+</button>
+      <button class="integerButton" onclick="appendToInputBox('7')">7</button>
+      <button class="integerButton" onclick="appendToInputBox('8')">8</button>
+      <button class="integerButton" onclick="appendToInputBox('9')">9</button>
+
+      <button class="operatorButton" onclick="appendToInputBox('*')">*</button>
+      <button class="integerButton" onclick="appendToInputBox('0')">0</button>
+      <button class="operatorButton" onclick="appendToInputBox('.')">.</button>
+      <button class="operatorButton" onclick="appendToInputBox('/')">/</button>
+      <button class="operatorButton" onclick="appendToInputBox('%')">%</button>
+      
+      <button onclick="appendToInputBox('√')">√</button>
+      <button id="calButton" onclick="calResult()">Calculate</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
