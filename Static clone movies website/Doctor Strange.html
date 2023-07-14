@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--    
+   JS For Dark Mode  -->
+
+
+
+
+    <style>
+        .intro-text {
+            z-index: 20;
+            padding-top: 10vh;
+            margin-top: -10vh;
+        }
+
+        .slider.active {
+            width: 200px;
+        }
+
+
+
+        .bg {
+            height: 80vh;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            display: block;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            outline-color: rgb(240, 240, 240);
+            object-fit: cover;
+            object-position: 50% 0px;
+            width: 100%;
+        }
+
+        /* *,
+        ::after,
+        ::before {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            outline: none;
+        } */
+
+        .dark-mode {
+            background-color: #ffffff82;
+            --icon-color: black;
+            color: rgb(13, 101, 224);
+        }
+
+        body {
+            --icon-color: rgb(255, 255, 255);
+        }
+
+        .curve-edge {
+            border-top-left-radius: 7vh;
+            border-top-right-radius: 7vh;
+            bottom: 5vh;
+            height: 20vh;
+            left: 0;
+            position: absolute;
+            right: 0;
+            backdrop-filter: blur(20px) saturate(50%);
+            z-index:1;
+            background-color: rgba(63, 73, 126, 0);
+            background-image: linear-gradient(rgba(52, 65, 131, 0), var(--background-color));
+            transition: background-color .3s ease;
+        }
+
+        .header {
+
+            box-shadow: 0 4px 20px rgba(21, 76, 179, 0.3);
+
+
+
+            backdrop-filter: blur(5px) saturate(181%);
+
+            height: 7vh;
+            min-height: 50px;
+            color: wheat;
+
+            display: flex;
+            overflow: visible;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            z-index: 99;
+            justify-content: space-between;
+        }
+
+        html {
+            /* -webkit-front-smoothing: antialiased;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            --default-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1), 0px, 1px, 3px, 0px, rgb(0 0 0/8%); */
+            --background-color: #020010;
+            background-color: var(--background-color);
+            color: antiquewhite;
+            font-family: DM sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .poster {
+            box-sizing: border-box;
+            display: flexbox;
+            z-index: 98;
+            height: 50vh;
+            width: auto;
+            margin-top: 40vh;
+            border-radius: 6vh;
+            padding-inline: 20vh;
+        }
+
+
+
+        h3,
+        h4 {
+            color: rgb(182, 169, 169);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 7vh;
+        }
+
+        h2 {
+            font-size: 4vh;
+        }
+
+        .synopsis {
+            padding-inline: 5vh;
+            padding-block: 3vh;
+            margin-left: 100px;
+        }
+
+        .trailer {
+            padding-inline: 5vh;
+            padding-block: 3vh;
+            
+            display: block;
+            margin: auto;
+            margin-left: 3em;
+        }
+
+        .movies-container {
+            margin-left: 100px;
+        }
+
+        .details {
+            display: flex;
+            align-items: flex-end;
+            box-sizing: border-box;
+            justify-items: center;
+        }
+
+        iframe {
+            /* box-sizing: border-box; */
+            border-radius: 5vh;
+            /* display: block; */
+            /* justify-items: center; */
+            width: 80em;
+            height: 40em;
+        }
+
+        /*MAIN CONTENT-MOVIE LIST STYLING*/
+        #movies {
+            margin-top: 20px;
+            margin-left: 12px;
+            padding: 10px;
+            padding-left: 0px;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+
+
+        }
+
+        #movies .box {
+
+            padding: 2px;
+            margin: 3px 7px;
+            border-radius: 28px;
+            cursor: pointer;
+
+        }
+
+        #movies .box img {
+
+            height: 260px;
+            display: block;
+            margin: auto;
+            border-radius: 18px;
+            transition: transform .3s;
+
+
+        }
+
+        /*IMAGE HOVER STYLING*/
+        #movies .box img:hover {
+
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            border: 2px solid white;
+            box-sizing: border-box;
+
+        }
+
+
+
+
+
+        /*STYLING FOR CONTENT IN EACH IMAGE*/
+        .h-primary {
+            margin-top: 2px;
+            margin-left: 23px;
+            font-size: 1.7rem;
+            color: white;
+
+        }
+
+
+        .h-secondary {
+            font-size: 1.1rem;
+            padding: 2px;
+            margin-left: 1px;
+            color: white;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .h-detail1 {
+            color: rgba(240, 248, 255, 0.865);
+            display: inline;
+            position: relative;
+            bottom: px;
+            font-size: 0.8rem;
+            padding: 0px;
+            margin-left: 3px;
+            bottom: 4px;
+        }
+
+        .h-detail2 {
+            display: inline;
+            position: relative;
+            bottom: 5px;
+            left: 79px;
+            padding: 1px;
+            font-size: 0.8rem;
+            background-color: black;
+            border: 2px solid white;
+            color: rgba(240, 248, 255, 0.865);
+            border-radius: 6px;
+
+        }
+
+        /*"HD" SUBSCRIPT STYLING IN IMAGE*/
+        .sub {
+            position: relative;
+            text-align: center;
+            bottom: 123px;
+            left: 136px;
+            width: 8%;
+            background-color: rgb(16, 16, 34);
+            border-radius: 5px;
+            padding: 2px 7px;
+
+            color: white;
+            font-size: 13px;
+        }
+
+        .slideshow-container::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        .slideshow-container::-webkit-scrollbar-track {
+            background: #8883ce;
+        }
+
+        .slideshow-container::-webkit-scrollbar-thumb {
+            background-color: #4c3cc3;
+            border-radius: 4px;
+            border: 2.5px inset #5654d9;
+        }
+
+
+
+        /*--------CSS FOR SIDE BAR-----*/
+
+
+
+        #dark {
+            background-color: #ab969600;
+            border: none;
+            margin-top: 2vh;
+
+        }
+
+        
+
+        .slider {
+            height: 700px;
+            transition: 1s;
+            position: fixed;
+
+            top: 0px;
+            left: 0px;
+            padding: 6px 14px;
+            width: 50px;
+            background-color: black;
+            opacity: 0.9;
+        }
+
+        .slider.active {
+            width: 240px;
+        }
+
+        .slider.active .logo_content .logo {
+            opacity: 1;
+            transition: 1s;
+        }
+
+        .slider .logo_content .logo {
+            color: white;
+            display: flex;
+            height: 50px;
+            width: 100%;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .logo_content .logo i {
+
+            font-size: 25px;
+            margin-right: 8px;
+        }
+
+        .logo_content .logo .logo_name {
+            font-size: 25px;
+
+        }
+
+        .slider #btn {
+            color: white;
+            position: absolute;
+            left: 62%;
+            top: 6px;
+            font-size: 20px;
+            height: 50px;
+            width: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .slider ul {
+
+            margin-top: 20px;
+        }
+
+        .slider.active #btn {
+            left: 90%;
+        }
+
+        .slider ul li {
+            list-style: none;
+            height: 50px;
+            margin: 7px 10px;
+            position: relative;
+        }
+
+        .slider ul li a {
+            display: flex;
+            height: 25px;
+            color: white;
+            align-items: center;
+            transition: 0.5s;
+            text-decoration: none;
+            border: 0px solid red;
+            margin-top: 15px;
+            margin-bottom: 15px;
+
+        }
+
+        .slider ul li a i {
+            border: 0px solid red;
+            padding: 10px;
+            height: 50px;
+            white-space: nowrap;
+            margin: 0px 60px 20px 0px;
+            line-height: 65px;
+            border-radius: 14px;
+            font-size: 20px;
+
+        }
+
+        .slider ul li a:hover {
+            background: white;
+            color: black;
+        }
+
+        input {
+            padding: 5px;
+            outline: none;
+            width: 100%;
+            color: red;
+            background: gray;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input:hover {
+            background: white;
+        }
+
+        .slider ul li .tooltip {
+            color: black;
+            border: 0px solid red;
+            position: absolute;
+            height: 35px;
+            width: 122px;
+            background: white;
+            box-shadow: 0 5px 10px black;
+            text-align: center;
+            line-height: 40px;
+            top: -35px;
+            left: 60px;
+            opacity: 0;
+            z-index: -100;
+        }
+
+        .slider.active ul li:hover .tooltip {
+            opacity: 0;
+        }
+
+        .slider ul li:hover .tooltip {
+            background: white;
+            color: black;
+            top: 0px;
+            transition: 0.5s;
+            opacity: 1;
+            display: block;
+            z-index: 1;
+            ;
+        }
+
+        .slider.active ul li a:hover {
+            background: white;
+            color: black;
+        }
+
+
+        .slider.active ul li .tooltip {
+            display: block;
+        }
+
+        .slider.active .link_name {
+            opacity: 1;
+            pointer-events: auto;
+            transition: 1s;
+        }
+
+        .slider .link_name {
+            opacity: 0;
+            pointer-events: none;
+            ;
+        }
+        /*side bar end*/
+
+        .genre{
+            text-decoration: none;
+            background-color: rgba(250, 234, 214, 0.411);
+            padding: 2vh;
+            padding-block: 1vh;
+            margin: 1vh;
+            border-radius: 2em;
+            color: #09013ada;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <div>
+
+
+        <div class="header">
+            <script src="https://kit.fontawesome.com/e50fd9066e.js" crossorigin="anonymous"></script>
+            <span><i></i></span>
+            <!-- For slide bar -->
+            <div class="slider">
+                <div class="logo_content">
+                    <div class="logo">
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical" id="btn"></i>
+                </div>
+
+
+                <ul class="nav list" style="margin-left: -3em;margin-top:2em;">
+
+
+
+
+                    <!-- <li>
+                <a href="#">
+                <i class="fa-solid fa-users"></i>
+                <span class="link_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+                </li> -->
+    <li>
+                <a href="HomePage.html">
+                <i class="fa-solid fa-home"></i>
+                <span class="link_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+                </li> 
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-tv"></i>
+                            <span class="link_name">TV</span>
+                        </a>
+                        <span class="tooltip">TV</span>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-video"></i>
+                            <span class="link_name">Movies</span>
+                        </a>
+                        <span class="tooltip">Movies</span>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <span class="link_name">Help Center</span>
+                        </a>
+                        <span class="tooltip">Help Center</span>
+                    </li>
+
+                    <li>
+                        <a href="https:/www.discord.com/invite/valorant">
+                            <i class="fa-brands fa-discord"></i>
+                            <span class="link_name">Discord</span>
+                        </a>
+                        <span class="tooltip">Discord</span>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-gear"></i>
+                            <span class="link_name">Settings</span>
+                        </a>
+                        <span class="tooltip">Settings</span>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+            <!-- For dark Mode -->
+            <span><button onclick="change('Orange')" id="dark"><i class="fas fa-moon fa-2x"
+                        style="color: orange;"></i></button></span>
+        </div>
+        <!-- For Background Image -->
+        <div><img class="bg" loading="lazy" src="https://image.tmdb.org/t/p/w1280/wcKFYIiVDvRURrzglV9kGu7fpfY.jpg">
+        </div><br><br>
+        <div class="curve-edge"></div><br><br><br>
+
+        <div class="details">
+
+            <img class="poster" src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" loading="lazy">
+            <div class="intro-text">
+                <h1>Dr. Strange: In the Multiverse of Madness</h1>
+                <a href="#" class="genre">Fantasy</a><a href="#" class="genre">Marvel</a>
+                <h3>2h 6min | May 4th 2022 | Continuing | 7.5</h3>
+            </div>
+
+        </div>
+
+        <div class="synopsis">
+            <h2 class="text">Sypnosis</h2>
+            <h3>Doctor Strange, with the help of mystical allies both old and new, traverses the mind-bending and dangerous alternate realities of the Multiverse to confront a mysterious new adversary.</h3>
+        </div>
+    </div>
+    <div class="trailer">
+        <h2 class="text">Trailer</h2>
+        <iframe src="https://www.youtube.com/embed/JAnPg9t5hw0" 
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+    <section class="movies-container">
+        <h1 class="h-primary">Cast</h1>
+        <div id="movies" class="slideshow-container">
+            <div class="box">
+                <img src="https://image.tmdb.org/t/p/w200//fBEucxECxGLKVHBznO0qHtCGiMO.jpg" loading="lazy" alt="">
+                <h2 class="h-secondary ">Benedict Cumberbatch</h2>
+
+            </div>
+
+            <div class="box">
+                <img src="https://image.tmdb.org/t/p/w200//wIU675y4dofIDVuhaNWPizJNtep.jpg" loading="lazy" alt="">
+                <h2 class="h-secondary ">Elizabeth Olsen</h2>
+
+            </div>
+            <div class="box">
+                <img src="https://image.tmdb.org/t/p/w200//kq5DDnqqofoRI0t6ddtRlsJnNPT.jpg" loading="lazy" alt="">
+                <h2 class="h-secondary ">Chiwetel Ejiofor</h2>
+
+            </div>
+            <div class="box">
+                <img src="https://image.tmdb.org/t/p/w200//ukmfsl59Isvn9odgzMWBidA3cmt.jpg" loading="lazy" alt="">
+                <h2 class="h-secondary ">Benedict Wong</h2>
+
+            </div>
+            <div class="box">
+                <img src="https://image.tmdb.org/t/p/w200//y3aFdIpfT7GqVoVa523PqF9cJgO.jpg" loading="lazy" alt="">
+                <h2 class="h-secondary ">Xochitl Gomez</h2>
+
+            
+
+            </div>
+            <div class="box">
+                <img src="https://image.tmdb.org/t/p/w200//yrbY3ebII569deRr9NLD9kKV0HO.jpg" loading="lazy" alt="">
+                <h2 class="h-secondary ">Jett Klyne</h2>
+
+            </div>
+            <div class="box">
+                <img src="https://image.tmdb.org/t/p/w200//umnRZFm9pQ9xB53PQwUPFOVul4j.jpg" loading="lazy" alt="">
+                <h2 class="h-secondary ">Julian Hiliard</h2>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <script>
+        let btn = document.querySelector("#btn");
+        let slider = document.querySelector(".slider");
+
+        btn.onclick = function () {
+            slider.classList.toggle("active");
+        }
+
+
+        let text2 = document.getElementsByClassName("text");
+        let text = document.getElementsByClassName("text");
+        let text1 = document.getElementsByClassName("sypnosis");
+        function change(color) {
+            document.body.style.backgroundColor = color;
+            if (color == "#000000") {
+                for (let elm of text) {
+                    elm.style.color = "black";
+                }
+            }
+        }
+
+        function change(color) {
+            document.body.style.backgroundColor = color;
+            if (color == "#000000") {
+                for (let elm of text1) {
+                    elm.style.color = "black";
+                }
+            }
+        }
+
+        function change(color) {
+            document.body.style.backgroundColor = color;
+            if (color == "#000000") {
+                for (let elm of text2) {
+                    elm.style.color = "red";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
